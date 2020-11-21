@@ -63,7 +63,7 @@ public class JavBusParsingProfile extends SiteParsingProfile implements Specific
 			String urlOfCurrentPage = document.location();
 			if (urlOfCurrentPage != null && urlOfCurrentPage.contains("/en/")) {
 				//the genres are only available on the japanese version of the page
-				urlOfCurrentPage = urlOfCurrentPage.replaceFirst(Pattern.quote("http://www.javbus.com/en/"), "http://www.javbus.com/ja/");
+				urlOfCurrentPage = urlOfCurrentPage.replaceFirst(Pattern.quote("https://www.busfan.men/en/"), "https://www.busfan.men/ja/");
 				if (urlOfCurrentPage.length() > 1) {
 					try {
 						japaneseDocument = Jsoup.connect(urlOfCurrentPage).userAgent("Mozilla").ignoreHttpErrors(true).timeout(SiteParsingProfile.CONNECTION_TIMEOUT_VALUE).get();
@@ -323,7 +323,7 @@ public class JavBusParsingProfile extends SiteParsingProfile implements Specific
 		URLCodec codec = new URLCodec();
 		try {
 			String fileNameURLEncoded = codec.encode(fileNameNoExtension);
-			String searchTerm = "http://www.javbus.com/" + getUrlLanguageToUse() + "/search/" + fileNameURLEncoded;
+			String searchTerm = "https://www.busfan.men/" + getUrlLanguageToUse() + "/search/" + fileNameURLEncoded;
 			return searchTerm;
 
 		} catch (Exception e) {
